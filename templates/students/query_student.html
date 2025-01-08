@@ -1,0 +1,60 @@
+<!-- templates/students/query_student.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Query Student</h2>
+
+<!-- Search Form -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-8">
+                <input type="text" name="q" class="form-control" placeholder="Enter student name" value="{{ query }}">
+            </div>
+            <div class="col-md-4 d-grid">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Search Results -->
+{% if query %}
+    <h4 class="mb-3">Search Results for "{{ query }}"</h4>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-secondary">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Major</th>
+                    <th>Gender</th>
+                    <th>Subject</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in results %}
+                    <tr>
+                        <td>{{ student.student_id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.get_major_display }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.subject }}</td>
+                        <td>{{ student.score }}</td>
+                        <td>
+                            <a href="{% url 'students:modify_student' student.pk %}" class="btn btn-sm btn-warning me-1">Modify</a>
+                            <a href="{% url 'students:delete_student' student.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center">No students found with name "{{ query }}".</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-6 text-center text-uppercase fw-bold">Welcome to My Student Transcript Management System</h1>
+    <div class="container-fluid py-5 d-flex align-items-center">
+        <!-- Text Section (70%) -->
+        <div class="col-md-8 text-center">
+            <p class="col-md-10 fs-4">
+                Thank you, <span class="fw-bold">Professor Wang Haocheng</span>, for entrusting me with this project.
+                This system is designed to simplify the management, viewing, and exporting of student transcripts with
+                an intuitive interface.
+            </p>
+            <div class="text-center">
+                <a href="{% url 'students:create_student' %}" class="btn btn-primary btn-lg">
+                    <i class="bi bi-plus-circle me-2"></i>Get Started
+                </a>
+            </div>
+        </div>
+        <!-- Image Section (30%) -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/professor_wang2.jpg' %}" class="img-fluid rounded" alt="Professional Hero Image"
+                style="max-width: 100%; height: auto; max-height: 400px;">
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-plus-circle display-4 text-primary mb-3"></i>
+                <h5 class="card-title">Create New Records</h5>
+                <p class="card-text">Efficiently add new student transcripts with ease and precision.</p>
+                <a href="{% url 'students:create_student' %}" class="btn btn-outline-primary">
+                    <i class="bi bi-pencil-square me-1"></i>Create Now
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-table display-4 text-success mb-3"></i>
+                <h5 class="card-title">View All Transcripts</h5>
+                <p class="card-text">Access and review all student transcripts in a centralized location.</p>
+                <a href="{% url 'students:list_students' %}" class="btn btn-outline-success">
+                    <i class="bi bi-eye me-1"></i>View Transcripts
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-file-earmark-spreadsheet display-4 text-warning mb-3"></i>
+                <h5 class="card-title">Export Data</h5>
+                <p class="card-text">Export all transcripts to CSV for offline access and comprehensive reporting.</p>
+                <a href="{% url 'students:export_csv' %}" class="btn btn-outline-warning">
+                    <i class="bi bi-download me-1"></i>Export CSV
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Acknowledgment Section -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-header bg-secondary text-white">
+        <h4 class="mb-0">Acknowledgment</h4>
+    </div>
+    <div class="card-body">
+        <div class="row align-items-center">
+            <!-- Professor's Image Carousel -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div id="professorCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'images/professor_wang.jpg' %}" class="d-block w-100 rounded carousel-image" alt="Professor Wang 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/professor_wang1.png' %}" class="d-block w-100 rounded carousel-image" alt="Professor Wang 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/professor_wang3.jpg' %}" class="d-block w-100 rounded carousel-image" alt="Professor Wang 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/professor_wang4.jpg' %}" class="d-block w-100 rounded carousel-image" alt="Professor Wang 4">
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#professorCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#professorCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Professor's Message -->
+            <div class="col-md-6">
+                <h5 class="card-title">Professor Wang Haochen (天涯皓雪凛霜晨)</h5>
+                <p class="card-text">
+                    I extend my heartfelt gratitude to Professor Wang for his exceptional guidance in the "Curriculum Design of Data Structures" and "Algorithm Design and Analysis" courses. His dedication and expertise have been instrumental in shaping my understanding and application of complex concepts throughout my studies at Nantong University.
+                </p>
+                <a href="{% url 'admin:index' %}" class="btn btn-outline-primary">
+                    <i class="bi bi-person-circle me-1"></i>Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Me Section -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">About Me</h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><a href="https://misbahulamin.netlify.app/" class="text-decoration-none">Misbahul Amin</a>.</h5>
+        <p class="card-text">
+            Student ID: 2130130233<br>
+            Major: Computer Science and Technology<br>
+            Currently in my 4th year at Nantong University, I have developed this Student Transcript Management System
+            as my capstone project under the mentorship of Professor Wang Haochen. This project showcases my skills in
+            web development, database management, and user interface design.
+        </p>
+        <a href="{% url 'students:home' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-person me-1"></i>About Me
+        </a>
+    </div>
+</div>
+
+<style>
+.carousel-image {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- templates/students/delete_student.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4 text-danger">Delete Student</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <p>Are you sure you want to delete the record of <strong>{{ student.name }}</strong> ({{ student.student_id }})?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-flex justify-content-end">
+                <a href="{% url 'students:list_students' %}" class="btn btn-secondary me-2">Cancel</a>
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- templates/students/create_student.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Create a New Student</h4>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="d-flex justify-content-between">
+                <button type="submit" name="save" class="btn btn-success">Save</button>
+                <button type="submit" name="add_another" class="btn btn-secondary">Save and Add Another</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
