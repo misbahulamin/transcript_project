@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)55#*n=u=n*l#jg4=*@s(iyzkh0(&59glls57g8w(!og_ox*@i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['transcript-project-7ofz.onrender.com']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -135,3 +135,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For production
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_TRUSTED_ORIGINS = [
+    'transcript-project-7ofz.onrender.com',
+]
