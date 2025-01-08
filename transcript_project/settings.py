@@ -136,5 +136,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For production
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
-    'transcript-project-7ofz.onrender.com',
+    'https://transcript-project-7ofz.onrender.com/',
 ]
