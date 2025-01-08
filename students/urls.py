@@ -12,4 +12,5 @@ urlpatterns = [
     path('modify/<int:pk>/', views.modify_student, name='modify_student'),
     path('delete/<int:pk>/', views.delete_student, name='delete_student'),
     path('export_csv/', views.export_csv, name='export_csv'),
+    path('class_project_code/', views.class_project_code, name='class_project_code'),
 ]

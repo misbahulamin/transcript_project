@@ -1,0 +1,12 @@
+<!-- templates/students/class_project_code.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4 text-center">Class Project Code</h2>
+    <div class="code-container">
+        <pre><code class="language-python">{{ python_code }}</code></pre>
+    </div>
+</div>
+{% endblock %}
